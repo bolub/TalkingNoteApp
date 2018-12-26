@@ -18,10 +18,10 @@ class App extends Component {
   onSubmitHandler = (event) => {
     event.preventDefault();
 
-    spoken.listen().then(
-      transcript => alert("Answer: " + transcript)
-  ).catch( e => console.warn(e.message) )
-  
+    //spoken.listen().then(
+    // transcript => alert("Answer: " + transcript)
+    //).catch( e => console.warn(e.message) )
+
     this.setState({
       value: '',
       notes: [...this.state.notes, this.state.value]
@@ -41,30 +41,29 @@ class App extends Component {
   render() {
     return (
       <div className="App my-5 pt-5">
-        <div className="card bg-general col-md-5 m-auto h-100">
-          <img src={logo} className="App-logo" alt="logo" />
+        <div className="card col-sm-4 m-auto h-100">
+          <img src={logo} className="App-logo card-img-top" alt="logo" />
 
-          <form onSubmit={this.onSubmitHandler}>
-            <div className="form-group">
-              <div className="row no-gutters">
+          <div className="card-body">
+            <form onSubmit={this.onSubmitHandler}>
+              <div className="form-group">
+                <div className="row no-gutters">
 
-                <div className="col-sm-1">
-                  <i className="fa fa-plus pl-3 submit" onClick={this.onSubmitHandler}></i>
+                  <div className="col-sm-11">
+                    <input type="text" placeholder="List-item" value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
+                  </div>
                 </div>
 
-                <div className="col-sm-11">
-                  <input type="text" placeholder="List-item" value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
-                </div>
+                <Note
+                  notes={this.state.notes}
+                  delete={this.deleteNotesHandler}
+                  speak={this.speakNotesHandler}
+                />
               </div>
+            </form>
+          </div>
 
-              <Note
-                notes={this.state.notes}
-                delete={this.deleteNotesHandler}
-                speak={this.speakNotesHandler}
-              />
 
-            </div>
-          </form>
         </div>
       </div>
     );
