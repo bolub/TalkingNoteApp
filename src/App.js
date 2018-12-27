@@ -17,9 +17,10 @@ class App extends Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
+    spoken.say(this.state.value);
     this.setState({
       value: '',
-      notes: [...this.state.notes, this.state.value],
+      notes: [...this.state.notes, this.state.value]
     })
   }
 
@@ -33,6 +34,12 @@ class App extends Component {
     spoken.say(this.state.notes);
   }
 
+  onSpeakHandler = () =>{
+    spoken.listen()
+    .then( transcript => alert(transcript)     )
+    .catch(     error => console.warn(error.message) )
+  }
+
   render() {
     return (
       <div className="App my-5 pt-5">
@@ -40,11 +47,12 @@ class App extends Component {
           <img src={logo} className="App-logo card-img-top" alt="logo" />
 
           <div className="card-body">
+          <button className="btn btn-primary btn-sm my-4" onClick={this.onSpeakHandler}>speak</button>
             <form onSubmit={this.onSubmitHandler}>
               <div className="form-group">
                 <div className="row no-gutters">
                   <div className="col-sm-11">
-                    <input type="text" placeholder={"add note"} value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
+                    <input type="text" placeholder="add note" value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
                   </div> 
                 </div>
 
