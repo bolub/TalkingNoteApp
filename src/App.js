@@ -8,7 +8,7 @@ class App extends Component {
 
   state = {
     value: '',
-    notes: [],
+    notes: []
   }
 
   onChangeHandler = (event) => {
@@ -17,14 +17,9 @@ class App extends Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-
-    //spoken.listen().then(
-    // transcript => alert("Answer: " + transcript)
-    //).catch( e => console.warn(e.message) )
-
     this.setState({
       value: '',
-      notes: [...this.state.notes, this.state.value]
+      notes: [...this.state.notes, this.state.value],
     })
   }
 
@@ -48,10 +43,9 @@ class App extends Component {
             <form onSubmit={this.onSubmitHandler}>
               <div className="form-group">
                 <div className="row no-gutters">
-
                   <div className="col-sm-11">
-                    <input type="text" placeholder="List-item" value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
-                  </div>
+                    <input type="text" placeholder={"add note"} value={this.state.value} onChange={this.onChangeHandler} className="form-control" />
+                  </div> 
                 </div>
 
                 <Note

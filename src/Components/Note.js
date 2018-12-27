@@ -6,10 +6,10 @@ const note = (props) => {
             {
                 props.notes.map((note, index) => {
                     return (
-                        <ul className="list-unstyled text-left pl-3 col-sm-11 mt-4">
+                        <ul key={index} className="list-unstyled text-left pl-3 col-sm-11 mt-4">
                             <div className="row border py-2">
                                 <div className="col-sm-7">
-                                    <li key={index} className="mt-1">
+                                    <li className="mt-1">
                                         <input type="checkbox" className="mr-2" />
                                         {note}
                                     </li>
