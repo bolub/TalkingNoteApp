@@ -40,6 +40,7 @@ class App extends Component {
     .catch(     error => console.warn(error.message) )
   }
 
+
   render() {
     return (
       <div className="App my-5 pt-5">
@@ -47,7 +48,7 @@ class App extends Component {
           <img src={logo} className="App-logo card-img-top" alt="logo" />
 
           <div className="card-body">
-          
+          <button className="btn btn-primary btn-sm my-4" onClick={this.onSpeakHandler}>speak</button>
             <form onSubmit={this.onSubmitHandler}>
               <div className="form-group">
                 <div className="row no-gutters">
