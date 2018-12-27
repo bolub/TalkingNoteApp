@@ -47,7 +47,7 @@ class App extends Component {
           <img src={logo} className="App-logo card-img-top" alt="logo" />
 
           <div className="card-body">
-          <button className="btn btn-primary btn-sm my-4" onClick={this.onSpeakHandler}>speak</button>
+          
             <form onSubmit={this.onSubmitHandler}>
               <div className="form-group">
                 <div className="row no-gutters">
