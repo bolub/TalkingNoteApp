@@ -38,7 +38,12 @@ class App extends Component {
     return (
       <div>
         <div className="App my-5 pt-5">
-          <div className="card col-sm-4 m-auto h-100">
+
+          <div className="alert alert-light text-dark rounded-0 m-auto col-sm-4" role="alert">
+            <p className="text-monospace pt-2">Hello there, this app only works on chrome</p>
+          </div>
+
+          <div className="card col-sm-4 mt-5 h-100">
             <img src={logo} className="App-logo card-img-top" alt="logo" />
 
             <div className="card-body">
